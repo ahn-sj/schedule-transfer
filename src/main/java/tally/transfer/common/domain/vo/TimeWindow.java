@@ -23,9 +23,16 @@ public class TimeWindow {
         return new TimeWindow(start, end);
     }
 
+    /**
+     * 지정된 시간(time)이 이 시간 대역에 포함되는지 확인합니다.
+     * 시간 대역이 자정 이후로 넘어가는 경우(예: 23:50 ~ 00:05)도 처리합니다.
+     *
+     * @param time 비교 시간
+     * @return 지정된 시간이 이 시간 대역에 포함되면 true, 그렇지 않으면 false
+     */
     public boolean isWithin(LocalTime time) {
         if (end.isBefore(start)) {
-            return time.isAfter(start) || !time.isAfter(end);
+            return !time.isBefore(start) || time.isBefore(end);
         }
         return !time.isBefore(start) && time.isBefore(end);
     }

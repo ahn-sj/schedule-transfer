@@ -15,8 +15,8 @@ public class FixedMaintenanceChecker implements MaintenanceChecker {
 
     public FixedMaintenanceChecker() {
         this.maintenanceWindow = TimeWindow.between(
-                LocalTime.of(23, 30),
-                LocalTime.of(0, 30)
+                LocalTime.of(23, 50),
+                LocalTime.of(0, 5)
         );
     }
 
