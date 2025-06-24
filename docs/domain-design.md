@@ -78,8 +78,8 @@
 - `status`: 예약 거래 상태
 - `memo`: 예약 거래 메모
 - `failure_reason`: 실패 사유 (실패시)
+- `schedule_dt`: 예약 거래 일자 (실제 이 날짜에 송금액만큼 수신자에게 발송)
 - `reserved_at`: 예약 거래 신청 일시
-- `scheduled_dt`: 예약 거래 일자 (실제 이 날짜에 송금액만큼 수신자에게 발송)
 - `executed_at`: 실제 실행 일시
 
 #### 행위
