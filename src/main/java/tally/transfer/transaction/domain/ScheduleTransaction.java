@@ -51,6 +51,16 @@ public class ScheduleTransaction {
 
     private String memo;
 
+    /**
+     * 예약 거래를 생성합니다.
+     * - 잔액없더라도 예약 거래 생성은 가능하고, 실행 시점에 잔액이 없으면 실패
+     *
+     * @param source 송금자 계좌 ID
+     * @param destination 수신자 계좌 ID
+     * @param amount 거래 금액
+     * @param scheduleDt 예약 날짜
+     * @param memo 거래 메모 (선택 사항)
+     */
     private ScheduleTransaction(
             final Long source,
             final Long destination,
