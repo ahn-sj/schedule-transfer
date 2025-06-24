@@ -53,6 +53,10 @@ public class Money {
     }
 
     public boolean isGreaterThan(Money other) {
+        return amount.compareTo(other.amount) > 0;
+    }
+
+    public boolean isGreaterThanOrEqualTo(Money other) {
         return amount.compareTo(other.amount) >= 0;
     }
 

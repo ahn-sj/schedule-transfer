@@ -42,6 +42,6 @@ public class Account {
     }
 
     public boolean canWithdraw(Money amount) {
-        return this.balance.isGreaterThan(amount);
+        return this.balance.isGreaterThanOrEqualTo(amount);
     }
 }
