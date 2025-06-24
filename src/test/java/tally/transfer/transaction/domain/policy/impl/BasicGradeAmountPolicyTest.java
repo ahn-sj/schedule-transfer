@@ -1,12 +1,12 @@
-package tally.transfer.transaction.domain.policy;
+package tally.transfer.transaction.domain.policy.impl;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tally.transfer.account.domain.vo.Money;
-import tally.transfer.transaction.domain.policy.impl.BasicGradeAmountPolicy;
+import tally.transfer.transaction.domain.policy.ScheduleAmountPolicy;
 
-class ScheduleAmountPolicyTest {
+class BasicGradeAmountPolicyTest {
 
     @Test
     @DisplayName("[성공] 기본 등급 정책은 2,000,000원 이하의 금액을 허용한다")
