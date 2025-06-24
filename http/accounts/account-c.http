@@ -1,0 +1,8 @@
+### 계좌 생성 요청
+POST http://localhost:8080/v1/accounts
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "accountType": "SAVINGS"
+}
