@@ -72,7 +72,6 @@ public class ScheduleTransaction {
         Assert.notNull(destination, "수신자 계좌 ID는 null일 수 없습니다.");
         Assert.notNull(amount, "거래 금액은 null일 수 없습니다.");
         Assert.notNull(scheduleDt, "예약 날짜는 null일 수 없습니다.");
-        Assert.isTrue(!scheduleDt.isBefore(LocalDate.now()), "예약 날짜는 오늘 또는 이후여야 합니다.");
 
         this.source = source;
         this.destination = destination;
