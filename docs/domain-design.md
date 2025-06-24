@@ -124,8 +124,13 @@
 ---
 
 ### 거래 유형 (TransactionType)
+
+#### 상수
+
 - `DEBIT`: 출금
 - `CREDIT`: 입금
+
+---
 
 ### 거래 상태 (TransactionStatus)
 
