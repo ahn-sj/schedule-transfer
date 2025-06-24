@@ -28,6 +28,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
 
+    // uuid v7
+    implementation("com.github.f4b6a3:uuid-creator:6.1.1")
+
     // docker
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 
