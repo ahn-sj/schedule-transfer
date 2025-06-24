@@ -22,7 +22,7 @@ import java.time.ZonedDateTime;
 public class ScheduleTransaction {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_transaction_id")
     private Long id;
 
