@@ -36,14 +36,6 @@ public class Money {
         return new Money(this.amount.subtract(amount.amount));
     }
 
-    public Money times(double percent) {
-        return new Money(this.amount.multiply(BigDecimal.valueOf(percent)));
-    }
-
-    public Money divide(double divisor) {
-        return new Money(amount.divide(BigDecimal.valueOf(divisor)));
-    }
-
     public boolean isLessThan(Money other) {
         return amount.compareTo(other.amount) < 0;
     }
