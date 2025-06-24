@@ -35,10 +35,20 @@ public class Transaction {
     private UUID uuid;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "account_id", nullable = false)
     private Account account; /* 송금자 계좌 */
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "counterparty_account_id", nullable = false)
     private Account counterpartyAccount; /* 수신자 계좌 */
+
+    @Embedded
+    @AttributeOverride(name = "amount", column = @Column(name = "amount"))
+    private Money amount; /* 거래 금액 */
+
+    @Embedded
+    @AttributeOverride(name = "amount", column = @Column(name = "balance"))
+    private Money balance; /* 거래 후 잔액 */
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -48,24 +58,18 @@ public class Transaction {
     @Column(nullable = false)
     private TransactionStatus status;
 
-    @Embedded
-    private Money amount; /* 거래 금액 */
-
-    @Embedded
-    private Money balance; /* 거래 후 잔액 */
-
-    @Column(nullable = true)
-    private Long scheduleTransactionId; /* 예약 거래 ID, 예약 거래가 아닌 경우 null */
-
     @Enumerated(EnumType.STRING)
     private TransactionFailureReason failureReason;
 
-    private String memo;
+    @Column(nullable = true)
+    private Long scheduleTransactionId; /* 예약 거래 ID, 예약 거래가 아닌 경우 null */
 
     @CreatedDate
     private ZonedDateTime requestedAt;
 
     private ZonedDateTime transferredAt; /* 송금 완료 시간, 송금이 완료되지 않은 경우 null */
+
+    private String memo;
 
     public Transaction(
             final UUID uuid,

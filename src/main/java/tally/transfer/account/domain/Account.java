@@ -27,6 +27,7 @@ public class Account {
     private AccountType type;
 
     @Embedded
+    @AttributeOverride(name = "amount", column = @Column(name = "balance"))
     private Money balance;
 
     private Account(final Long userId, final AccountType type) {
