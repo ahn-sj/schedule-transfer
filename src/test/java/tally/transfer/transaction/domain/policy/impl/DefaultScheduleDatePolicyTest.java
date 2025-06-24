@@ -2,7 +2,7 @@ package tally.transfer.transaction.domain.policy.impl;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import tally.transfer.common.provider.impl.StubDateProvider;
+import tally.transfer.common.stub.StubDateProvider;
 import tally.transfer.transaction.domain.exception.InvalidScheduleDateException;
 import tally.transfer.transaction.domain.policy.ScheduleDatePolicy;
 

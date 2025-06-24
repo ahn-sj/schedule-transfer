@@ -1,4 +1,4 @@
-package tally.transfer.common.provider.impl;
+package tally.transfer.common.stub;
 
 import org.springframework.stereotype.Component;
 import tally.transfer.common.provider.DateProvider;
