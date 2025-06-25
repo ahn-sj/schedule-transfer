@@ -1,5 +1,6 @@
 package tally.transfer.transaction.domain;
 
+import tally.transfer.account.domain.enums.BankCode;
 import tally.transfer.account.domain.vo.Money;
 import tally.transfer.transaction.domain.enums.ScheduleTransactionStatus;
 import tally.transfer.transaction.domain.enums.TransactionFailureReason;
@@ -10,7 +11,9 @@ import java.time.ZonedDateTime;
 public class ScheduleTransactionFixture {
 
     private Long id = null;
+    private BankCode sourceBank = null;
     private Long sourceAccountId = null;
+    private BankCode targetBank = null;
     private Long destinationAccountId = null;
     private Money amount = Money.ZERO;
     private ScheduleTransactionStatus status = ScheduleTransactionStatus.RESERVED;
@@ -29,8 +32,18 @@ public class ScheduleTransactionFixture {
         return this;
     }
 
+    public ScheduleTransactionFixture withSourceBank(BankCode sourceBank) {
+        this.sourceBank = sourceBank;
+        return this;
+    }
+
     public ScheduleTransactionFixture withSourceAccountId(Long sourceAccountId) {
         this.sourceAccountId = sourceAccountId;
+        return this;
+    }
+
+    public ScheduleTransactionFixture withTargetBank(BankCode targetBank) {
+        this.targetBank = targetBank;
         return this;
     }
 
@@ -77,7 +90,9 @@ public class ScheduleTransactionFixture {
     public ScheduleTransaction build() {
         return new ScheduleTransaction(
                 id,
+                sourceBank,
                 sourceAccountId,
+                targetBank,
                 destinationAccountId,
                 amount,
                 status,

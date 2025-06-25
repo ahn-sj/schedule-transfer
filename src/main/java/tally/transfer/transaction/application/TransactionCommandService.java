@@ -36,8 +36,12 @@ public class TransactionCommandService {
 
     public TransactionCommandService(
             final ScheduleTransactionRepository scheduleTransactionRepository,
-            final AccountRepository accountRepository, final UserRepository userRepository,
-            final MaintenanceChecker maintenanceChecker, final ScheduleDatePolicy scheduleDatePolicy, final ScheduleAmountPolicy scheduleAmountPolicy, final Map<UserGrade, ScheduleAmountPolicy> scheduleAmountPolicyMap
+            final AccountRepository accountRepository,
+            final UserRepository userRepository,
+            final MaintenanceChecker maintenanceChecker,
+            final ScheduleDatePolicy scheduleDatePolicy,
+            final ScheduleAmountPolicy scheduleAmountPolicy,
+            final Map<UserGrade, ScheduleAmountPolicy> scheduleAmountPolicyMap
     ) {
         this.scheduleTransactionRepository = Objects.requireNonNull(scheduleTransactionRepository);
         this.accountRepository = Objects.requireNonNull(accountRepository);
