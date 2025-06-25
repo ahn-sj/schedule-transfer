@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:8.0.42
+    container_name: mysql-db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=transfer
+      - MYSQL_ROOT_PASSWORD=tally
+      - MYSQL_USER=tally
+      - MYSQL_PASSWORD=tally
+    ports:
+      - '3306:3306'
+  redis:
+    image: redis:7.4.4
+    container_name: redis-server
+    restart: always
+    labels:
+      - name=redis
+      - mode=standalone
+    ports:
+      - '6379:6379'
