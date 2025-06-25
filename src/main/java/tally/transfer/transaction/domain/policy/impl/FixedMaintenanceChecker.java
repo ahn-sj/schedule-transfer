@@ -25,4 +25,9 @@ public class FixedMaintenanceChecker implements MaintenanceChecker {
         // TODO: 시간 대역을 설정할 수 있도록 개선 필요
         return maintenanceWindow.isWithin(LocalTime.now());
     }
+
+    @Override
+    public String getMaintenanceWindow() {
+        return maintenanceWindow.toString();
+    }
 }

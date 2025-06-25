@@ -62,4 +62,9 @@ public class Account {
     public boolean canWithdraw(Money amount) {
         return this.balance.isGreaterThanOrEqualTo(amount);
     }
+
+    public boolean isSame(final Account target) {
+        return this.bankCode == target.bankCode
+                && this.accountNumber.equals(target.accountNumber);
+    }
 }

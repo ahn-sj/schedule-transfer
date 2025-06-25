@@ -30,6 +30,12 @@ public class StubUserRepository implements UserRepository {
     }
 
     @Override
+    public User getById(final Long userId) {
+        return Optional.ofNullable(store.get(userId))
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 사용자입니다. userId = " + userId));
+    }
+
+    @Override
     public void checkExists(final Long userId) {
         if (!store.containsKey(userId)) {
             throw new IllegalArgumentException("존재하지 않는 사용자입니다. userId = " + userId);
