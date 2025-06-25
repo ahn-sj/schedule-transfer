@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 import tally.transfer.account.domain.enums.AccountType;
 import tally.transfer.account.domain.vo.Money;
+import tally.transfer.account.policy.AccountNumberGenerator;
 
 @Getter
 @Entity
@@ -21,6 +22,9 @@ public class Account {
     @Column(name = "account_id")
     private Long id;
 
+    @Column(nullable = false, unique = true, length = 20)
+    private String accountNumber;
+
     private Long userId;
 
     @Enumerated(EnumType.STRING)
@@ -30,16 +34,23 @@ public class Account {
     @AttributeOverride(name = "amount", column = @Column(name = "balance"))
     private Money balance;
 
-    private Account(final Long userId, final AccountType type) {
+    private Account(final String accountNumber, final Long userId, final AccountType type) {
         Assert.notNull(userId, "사용자 ID는 null일 수 없습니다.");
         Assert.notNull(type, "계좌 유형은 null일 수 없습니다.");
+        Assert.hasText(accountNumber, "계좌 번호는 비어 있을 수 없습니다.");
+
+        this.accountNumber = accountNumber;
         this.userId = userId;
         this.type = type;
         this.balance = Money.ZERO;
     }
 
-    public static Account open(final Long userId, final AccountType type) {
-        return new Account(userId, type);
+    public static Account open(
+            final Long userId,
+            final AccountType type,
+            final AccountNumberGenerator accountNumberGenerator
+    ) {
+        return new Account(accountNumberGenerator.generate(), userId, type);
     }
 
     public boolean canWithdraw(Money amount) {

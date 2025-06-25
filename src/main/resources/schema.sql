@@ -11,10 +11,11 @@ CREATE TABLE users (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '유저 정보';
 
 CREATE TABLE accounts (
-    `account_id` BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '계좌 ID',
-    `user_id`    BIGINT         NOT NULL COMMENT '사용자 ID',
-    `balance`    DECIMAL(18, 2) NOT NULL COMMENT '계좌 잔액',
-    `type`       VARCHAR(64)    NOT NULL COMMENT '계좌 유형'
+    `account_id`     BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '계좌 ID',
+    `account_number` VARCHAR(20)    NOT NULL COMMENT '계좌 번호',
+    `user_id`        BIGINT         NOT NULL COMMENT '사용자 ID',
+    `balance`        DECIMAL(18, 2) NOT NULL COMMENT '계좌 잔액',
+    `type`           VARCHAR(64)    NOT NULL COMMENT '계좌 유형'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '계좌 정보';
 
 CREATE TABLE schedule_transactions (
