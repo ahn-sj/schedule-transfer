@@ -113,5 +113,14 @@ public class InMemoryLockManager implements LockManager {
 }
 ```
 
-### Solution 2: Redis INCR
+### Solution 2: Optimistc Locking with @Version
 
+```java
+
+```
+
+### Solution 3: Redis Distributed Lock
+
+```java
+
+```
