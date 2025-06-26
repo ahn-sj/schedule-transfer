@@ -7,6 +7,7 @@ import tally.transfer.transaction.domain.repository.ScheduleTransactionRepositor
 import tally.transfer.transaction.persistence.repository.ScheduleTransactionJpaRepository;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -17,6 +18,11 @@ public class ScheduleTransactionRepositoryImpl implements ScheduleTransactionRep
     @Override
     public ScheduleTransaction save(final ScheduleTransaction scheduleTransaction) {
         return scheduleTransactionJpaRepository.save(scheduleTransaction);
+    }
+
+    @Override
+    public Optional<ScheduleTransaction> findById(final long scheduleTransactionId) {
+        return scheduleTransactionJpaRepository.findById(scheduleTransactionId);
     }
 
     @Override

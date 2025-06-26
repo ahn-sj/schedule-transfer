@@ -40,17 +40,16 @@ public class InMemoryLockManager implements LockManager {
 
         for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
             try {
-                log.info("[InMemory] 락 획득 시도: Attempt {}, key {}", attempt, key);
+                log.debug("[InMemory] 락 획득 시도: Attempt {}, key {}", attempt, key);
                 final ReentrantLock lock = locks.computeIfAbsent(key, k -> new ReentrantLock(true));
                 boolean acquired = lock.tryLock(ttl, TimeUnit.SECONDS);
 
                 if (acquired) {
-                    log.info("Lock 획득 성공 (시도 횟수: {}): key={}", attempt, key);
+                    log.debug("Lock 획득 성공 (시도 횟수: {}): key={}", attempt, key);
                     return true;
                 }
                 if(attempt < MAX_RETRY_ATTEMPTS) {
                     final long interval = ThreadLocalRandom.current().nextLong(attempt, attempt * 2);
-                    log.info("interval: {}ms", interval);
                     delay(interval);
                 }
             } catch (InterruptedException e) {
