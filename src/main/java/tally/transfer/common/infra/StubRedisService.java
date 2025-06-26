@@ -7,12 +7,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static tally.transfer.util.TodoUtils.TODO;
-
 @Component
 public class StubRedisService implements RedisService {
 
     private final Map<String, AtomicLong> store = new ConcurrentHashMap<>();
+    private final Map<String, Long> ttlStore = new ConcurrentHashMap<>();
 
     @Override
     public Long increment(final String key) {
@@ -32,6 +31,6 @@ public class StubRedisService implements RedisService {
 
     @Override
     public void expire(final String key, final Duration ttl) {
-        TODO();
+        ttlStore.put(key, ttl.toSeconds());
     }
 }
