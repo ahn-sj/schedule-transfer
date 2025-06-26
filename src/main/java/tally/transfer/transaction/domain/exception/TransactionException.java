@@ -22,4 +22,16 @@ public class TransactionException extends RuntimeException {
             super(errorCode, message);
         }
     }
+
+    public static class ConcurrentModificationException extends TransactionException {
+        public ConcurrentModificationException(final ErrorCode errorCode, final String message) {
+            super(errorCode, message);
+        }
+    }
+
+    public static class ScheduleLimitExceededException extends TransactionException {
+        public ScheduleLimitExceededException(final ErrorCode errorCode, final String message) {
+            super(errorCode, message);
+        }
+    }
 }

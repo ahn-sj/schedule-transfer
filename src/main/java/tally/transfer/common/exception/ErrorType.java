@@ -11,6 +11,8 @@ public enum ErrorType {
     NOT_EXISTS("존재하지 않는 리소스"),
     MAINTENANCE("점검 중"),
     INVALID_REQUEST("잘못된 요청"),
+    CONCURRENT_MODIFICATION("동시 처리 충돌"),
+    REDIS_FAILURE("Redis 처리 실패"),
     ;
 
     private final String description;
