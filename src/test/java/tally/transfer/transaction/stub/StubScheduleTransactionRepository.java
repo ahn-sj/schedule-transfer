@@ -5,15 +5,15 @@ import tally.transfer.transaction.domain.ScheduleTransaction;
 import tally.transfer.transaction.domain.repository.ScheduleTransactionRepository;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
 public class StubScheduleTransactionRepository implements ScheduleTransactionRepository {
 
-    private final Map<Long, ScheduleTransaction> store = new HashMap<>();
+    private final Map<Long, ScheduleTransaction> store = new ConcurrentHashMap<>();
     private final AtomicLong id = new AtomicLong(1L);
 
     @Override

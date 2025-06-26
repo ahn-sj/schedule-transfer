@@ -101,6 +101,8 @@ public class TransactionCommandService {
 
         try {
             final Long count = redisService.increment(key);
+            // TODO: 왜 실패하는지 확인 필요
+//            final long count = scheduleTransactionRepository.countBySourceAndScheduleDt(source.getId(), request.getScheduleDt());
 
             // 예약 거래는 계좌당 하루 최대 10건까지만 등록할 수 있습니다.
             if (count > 10) {

@@ -1,6 +1,7 @@
-package tally.transfer.common.infra;
+package tally.transfer.common.stub;
 
 import org.springframework.stereotype.Component;
+import tally.transfer.common.infra.RedisService;
 
 import java.time.Duration;
 import java.util.Map;

@@ -9,7 +9,7 @@ import tally.transfer.account.domain.repository.AccountRepository;
 import tally.transfer.account.domain.vo.Money;
 import tally.transfer.account.stub.StubAccountRepository;
 import tally.transfer.common.concurrent.lock.InMemoryLockManager;
-import tally.transfer.common.infra.StubRedisService;
+import tally.transfer.common.stub.StubRedisService;
 import tally.transfer.common.stub.StubDateProvider;
 import tally.transfer.transaction.domain.ScheduleTransaction;
 import tally.transfer.transaction.domain.policy.impl.BasicGradeAmountPolicy;

@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum TransactionStatus {
-
     PENDING("처리 대기 중"),
     PROCESSING("처리 중"),
     SETTLED("송금 성공"),

@@ -2,6 +2,8 @@ package tally.transfer.config;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import tally.transfer.common.infra.RedisService;
+import tally.transfer.common.stub.StubRedisService;
 import tally.transfer.transaction.domain.repository.ScheduleTransactionRepository;
 import tally.transfer.transaction.stub.StubScheduleTransactionRepository;
 import tally.transfer.user.domain.repository.UserRepository;
@@ -18,5 +20,10 @@ public class TestConfig {
     @Bean
     public ScheduleTransactionRepository scheduleTransactionRepository() {
         return new StubScheduleTransactionRepository();
+    }
+
+    @Bean
+    public RedisService redisService() {
+        return new StubRedisService();
     }
 }

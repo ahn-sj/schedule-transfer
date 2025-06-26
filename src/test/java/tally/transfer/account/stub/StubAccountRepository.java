@@ -5,15 +5,15 @@ import tally.transfer.account.domain.Account;
 import tally.transfer.account.domain.enums.BankCode;
 import tally.transfer.account.domain.repository.AccountRepository;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
 public class StubAccountRepository implements AccountRepository {
 
-    private final Map<Long, Account> store = new HashMap<>();
+    private final Map<Long, Account> store = new ConcurrentHashMap<>();
     private final AtomicLong id = new AtomicLong(1L);
 
     @Override
