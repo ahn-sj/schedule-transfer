@@ -26,7 +26,6 @@ repositories {
 dependencies {
     // spring
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     // uuid v7
@@ -37,6 +36,8 @@ dependencies {
 
     // db
     runtimeOnly("com.mysql:mysql-connector-j")
+    implementation("org.redisson:redisson-spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
     // p6spy
     implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.10.0")
